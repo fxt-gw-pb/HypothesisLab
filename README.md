@@ -1,4 +1,33 @@
-# vinext-starter
+# 假设检验实验室
+
+八个浏览器交互实验，帮助理解 p 值、抽样分布、两类错误、检验力、t 检验、置信区间、独立与配对样本，以及精确置换检验。
+
+在线访问：**https://fxt-gw-pb.github.io/HypothesisLab/**
+
+## GitHub Pages 静态版本
+
+需要 Node.js 24 和 pnpm 11.25.0。安装后可运行：
+
+```sh
+npx --yes pnpm@11.25.0 install --frozen-lockfile
+npm run dev:pages
+```
+
+打开终端显示的地址下的 `/HypothesisLab/`。验证并预览生产构建：
+
+```sh
+npm run typecheck:pages
+npm run build:pages
+npm run preview:pages
+```
+
+`pages/main.tsx` 直接复用原来的 `app/page.tsx`、学习页面、实验组件、统计计算与全局样式。所有实验在浏览器中运行，无需后端、数据库、环境变量或访问令牌。`vite.pages.config.ts` 将资源路径设为 `/HypothesisLab/`，只将静态页面和公开资源输出到 `dist-pages/`。
+
+`.github/workflows/pages.yml` 在每次推送到 `main` 后安装锁定依赖、检查静态入口类型和代码规范、构建并发布 GitHub Pages。仓库 Pages 的构建来源使用 GitHub Actions；也可在 Actions 页面手动运行工作流。
+
+原始 Vinext/Cloudflare 构建入口仍保留；`npm run dev`、`npm run build` 和 `npm start` 对应原框架。GitHub Pages 使用独立入口，不改变原 ChatGPT Site。
+
+## 原始框架说明：vinext-starter
 
 A clean full-stack starter running on [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and Drizzle support.
 
