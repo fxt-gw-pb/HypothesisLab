@@ -31,8 +31,8 @@ jobs:
         run: npx --yes pnpm@11.25.0 install --frozen-lockfile
       - name: Check static application types
         run: npm run typecheck:pages
-      - name: Lint static entry and configuration
-        run: npx eslint pages/main.tsx vite.pages.config.ts
+      - name: Lint application and static entry
+        run: npx eslint app/learning.tsx pages/main.tsx vite.pages.config.ts
       - name: Build static site
         run: npm run build:pages
       - name: Upload static site
